@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Border Image Generator</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="custominputs.css">
+  <link rel="stylesheet" id="theme2">
+  <script src="main.js" defer></script>
+  <script src="theme2.js" async></script>
+</head>
+<body onmouseup="toggleActiveHR();" onmousemove="lineMove(event);">
+  <header>
+    <h1>Border Image Generator</h1>
+    <a href="javascript:;" style="float: right;" onclick="styleSheetToggle();" tabindex="1">Toggle Themes</a>
+  </header>
+  <section>
+    <table class="settings"><tbody>
+      <tr>
+        <td>Image Source:</td>
+        <td>
+          <input type="text" oninput="imageChange(this.value);" tabindex="2"><wbr>
+          <input type="file" onchange="imageChange(false, event)" id="localfilebutton" accept="image/*">
+          <label for="localfilebutton" onclick="javascript:;" tabindex="3">Select a file</label>
+          <img src="images/loading.gif" height="20" id="loadingimg" style="display: none;">
+          <img src="images/error.png" height="20" id="errorimg" style="display: none;">
+        </td>
+      </tr>
+      <tr></tr>
+      <tr>
+        <td>Top Offset:</td>
+        <td class="temporaryAddAonchangeElementHere">
+          <input type="range" min="0"><wbr>
+          <input type="number" min="0" class="inputvalues"> px
+        </td>
+      </tr>
+      <tr>
+        <td>Right Offset:</td>
+        <td class="temporaryAddAonchangeElementHere">
+          <input type="range" min="0"><wbr>
+          <input type="number" min="0" class="inputvalues"> px
+        </td>
+      </tr>
+      <tr>
+        <td>Bottom Offset:</td>
+        <td class="temporaryAddAonchangeElementHere">
+          <input type="range" min="0"><wbr>
+          <input type="number" min="0" class="inputvalues"> px
+        </td>
+      </tr>
+      <tr>
+        <td>Left Offset:</td>
+        <td class="temporaryAddAonchangeElementHere">
+          <input type="range" min="0"><wbr>
+          <input type="number" min="0" class="inputvalues"> px
+        </td>
+      </tr>
+      <tr><td></td><td><input type="checkbox" id="fillcenter" onchange="grabAllElements();"><label for="fillcenter">Fill Center</label></td></tr>
+      <tr></tr>
+      <tr>
+        <td>Top Border Size:</td>
+        <td class="temporaryAddAonchangeElementHere">
+          <input type="range" min="0"><wbr>
+          <input type="number" min="0" class="inputvalues"> px
+        </td>
+      </tr>
+      <tr>
+        <td>Right Border Size:</td>
+        <td class="temporaryAddAonchangeElementHere">
+          <input type="range" min="0"><wbr>
+          <input type="number" min="0" class="inputvalues"> px
+        </td>
+      </tr>
+      <tr>
+        <td>Bottom Border Size:</td>
+        <td class="temporaryAddAonchangeElementHere">
+          <input type="range" min="0"><wbr>
+          <input type="number" min="0" class="inputvalues"> px
+        </td>
+      </tr>
+      <tr>
+        <td>Left Border Size:</td>
+        <td class="temporaryAddAonchangeElementHere">
+          <input type="range" min="0"><wbr>
+          <input type="number" min="0" class="inputvalues"> px
+        </td>
+      </tr>
+      <tr><td></td><td><input type="checkbox" id="copyoffset" onchange="grabAllElements();" checked><label for="copyoffset">Copy Offset</label></td></tr>
+      <tr></tr>
+      <tr>
+        <td>Horizontal Repeat:</td>
+        <td>
+          <select class="inputvalues" onchange="grabAllElements();">
+            <option value="stretch">Stretch</option>
+            <option value="round">Round</option>
+            <option value="repeat">Repeat</option>
+            <option value="space">Space</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Vertical Repeat:</td>
+        <td>
+          <select class="inputvalues" onchange="grabAllElements();">
+            <option value="stretch">Stretch</option>
+            <option value="round">Round</option>
+            <option value="repeat">Repeat</option>
+            <option value="space">Space</option>
+          </select>
+        </td>
+      </tr>
+    </tbody></table>
+    <div id="sideeditor">
+      <div class="overlay">
+        <hr onmousedown="toggleActiveHR(this);">
+        <hr onmousedown="toggleActiveHR(this);" class="vertical">
+        <hr onmousedown="toggleActiveHR(this);">
+        <hr onmousedown="toggleActiveHR(this);" class="vertical">
+      </div>
+      <img>
+    </div>
+   </section>
+   
+  <section>
+    <h2>Preview</h2>
+    <style id="preview-style"></style>
+    <div id="preview">If you're seeing this message, either you have JavaScript disabled on your browser, which is required for this page to work, or something has gone wrong and a preview couldn't be made.</div>
+  </section>
+  
+  <footer>
+    v0.5 - <a href="https://github.com/RanAwaySuccessfully/border-image-generator">GitHub Repository</a><br>
+    made by <a href="https://ran.netlify.com/">RanAwaySucessfully</a>
+  </footer>
+  
+</body>
+</html>

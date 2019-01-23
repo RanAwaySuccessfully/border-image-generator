@@ -1,0 +1,129 @@
+/* Custom input[type=range] */
+
+/* https://css-tricks.com/sliding-nightmare-understanding-range-input/ */
+/* http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html */
+
+input[type=range] {
+    margin: 0;
+    padding: 0;
+    min-height: 1.5em;
+    background: transparent;
+    font: inherit;
+    outline: none;
+}
+input[type=range], input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+input[type=range]::-ms-tooltip {
+    display: none;
+}
+
+/* Track */
+
+input[type=range]::-webkit-slider-runnable-track {
+    box-sizing: border-box;
+    border: none;
+    width: 100%;
+    height: 5px;
+    background: #BDC7DB;
+    border-radius: 10px;
+}
+input[type=range]::-moz-range-track {
+    box-sizing: border-box;
+    border: none;
+    width: 100%;
+    height: 5px;
+    background: #BDC7DB;
+    border-radius: 10px;
+}
+input[type=range]::-ms-track {
+    box-sizing: border-box;
+    border: none;
+    
+    width: 100%;
+    height: 5px;
+    background: transparent; /* remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    border-color: transparent; /* leave room for the larger thumb to overflow with a transparent border */
+    border-width: 6px 0;
+    color: transparent; /* remove default tick marks */
+}
+input[type=range]::-ms-fill-lower {
+    background: #485C84;
+    border-radius: 10px;
+}
+input[type=range]::-ms-fill-upper {
+    background: #BDC7DB;
+    border-radius: 10px;
+}
+
+/* Slider */
+
+input[type=range]::-webkit-slider-thumb {
+    margin-top: -0.625em;
+    box-sizing: border-box;
+    border: none;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background: #0080FF;
+}
+input[type=range]::-moz-range-thumb {
+    box-sizing: border-box;
+    border: none;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background: #0080FF;
+}
+input[type=range]::-ms-thumb {
+    margin-top: 0;
+    box-sizing: border-box;
+    border: none;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background: #0080FF;
+}
+
+/*
+.wrap {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 12.5em;
+    height: 5.25em;
+    font: 1em/1 arial, sans-serif;
+}
+[type='range'] ~ output {
+  display: none;
+}
+.js [type='range'] ~ output {
+  display: block;
+  position: absolute;
+  left: 0.75em;
+  top: 0;
+  padding: .25em .5em;
+  border-radius: 3px;
+  transform: translate(calc((var(--val) - var(--min))/(var(--max) - var(--min))*11em - 50%));
+  background: #95A;
+  color: #EEE;
+} */
+
+/* Custom input[type=checkbox] */
+
+/* http://code.iamkate.com/html-and-css/styling-checkboxes-and-radio-buttons/ */
+
+input[type=checkbox] + label, input[type=radio] + label {
+    background: url("images/checkbox.png") no-repeat 6px 4px;
+    width: 28px;
+    margin-left: -26px;
+    padding: 2px 6px;
+    padding-left: 26px;
+}
+
+input[type=checkbox], input[type=radio] {opacity: 0;}
+input[type=checkbox]:checked + label {background-position: 6px -28px;}
+input[type=radio]:checked + label {background-position: 6px -60px;}
+
+input[type=checkbox]:focus + label {background-color: #262C40; border-radius: 3px;}
+input[type=range]:focus {background: #262C40; border-radius: 3px;}

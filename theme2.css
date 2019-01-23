@@ -1,0 +1,29 @@
+body {background: #606F9F; font-weight: bold;}
+header, section {background: #AAAECC; color: #000;}
+
+input[type=text] {background: #8086B3; border-color: #000;}
+input[type=number], select {border-color: #000;}
+input[type=number]:focus, select:focus {background: #CFD2E2;}
+input[type=text]:focus {background: #8F95BC;}
+
+.overlay hr {background: #444;}
+#sideeditor {border-color: #000;}
+
+option {background: #CFD2E2;}
+label[for=localfilebutton] {background: #000; color: #FFF;}
+label[for=localfilebutton]:focus {border-color: #FFF;}
+label[for=localfilebutton]:active {background: #333;}
+
+/* Custom input[type=range] and input[type=checkbox] */
+
+input[type=range]::-webkit-slider-runnable-track {background: #364563;}
+input[type=range]::-moz-range-track {background: #364563;}
+input[type=range]::-ms-fill-lower {background: #2D3A52;}
+input[type=range]::-ms-fill-upper {background: #485C84;}
+input[type=range]::-webkit-slider-thumb {background: #001A33;}
+input[type=range]::-moz-range-thumb {background: #001A33;}
+input[type=range]::-ms-thumb {background: #001A33;}
+
+input[type=checkbox] + label, input[type=radio] + label {background-image: url("images/checkbox_dark.png");}
+input[type=checkbox]:focus + label {background-color: #CFD2E2;}
+input[type=range]:focus {background: #CFD2E2;}
