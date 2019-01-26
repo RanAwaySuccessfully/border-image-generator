@@ -29,6 +29,7 @@ footer {text-align: center; margin-top: 40px;}
 #preview {word-break: break-word;}
 
 @media screen and (max-width: 1000px) {
+    body {padding: 20px 0;}
     section:first-of-type {display: block;}
     section table {margin: 0 auto;}
     section table td:nth-of-type(2) {white-space: nowrap;}

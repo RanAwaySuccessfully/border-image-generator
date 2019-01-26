@@ -168,6 +168,8 @@ function imageCheck(pageJustLoaded) {
 
 function lineMove(event) {
     if (currentlyActiveHR === false) {return;}
+    
+    event.preventDefault();
 
     var sideeditor = document.getElementById("sideeditor");
     var sideeditorPosition = sideeditor.getBoundingClientRect();
