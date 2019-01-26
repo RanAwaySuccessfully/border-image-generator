@@ -21,10 +21,10 @@ function defaultPageConfiguration() {
     for (i = 0; i < elements.length; i++) {
         if (i < 4) {
             extra = ", " + i;
-            tableChange(elements[i], 27, i);
+            tableChange(elements[i], 27, i, true);
         } else {
             extra = "";
-            tableChange(elements[i], 0);
+            tableChange(elements[i], 0, false, true);
         }
         
         elements[i].children[0].setAttribute("onchange", "tableChange(this.parentElement, this.value" + extra + ");"); //IE11
@@ -251,7 +251,9 @@ function updateRender(image, offsetsArray, sizesArray, repeatArray, copyOffset, 
     var preview = document.getElementById("preview");
     
     if (fillCenter) {fillCenter = " fill";} else {fillCenter = " ";}
-    if (copyOffset) {sizesArray = offsetsArray;}
+    if (copyOffset) {sizesArray = offsetsArray.slice(0);}
+    // .slice(0) is important as it is a function that will return a duplicate array
+    // if you don't do this, everything that happens to sizesArray will happen to offsetsArray too
     
     var sizes = formatArray(sizesArray, true);
     var offsets = formatArray(offsetsArray);
@@ -280,21 +282,28 @@ function updateRender(image, offsetsArray, sizesArray, repeatArray, copyOffset, 
 function formatArray(array, addPX) {
     var i;
     var sum = 0;
-    var string = "";
-    var first = array[0];
     
     for (i = 0; i < array.length; i++) {
         sum += array[i];
-        string += array[i] + " ";
     }
     sum /= array.length;
     
-    if (first === sum) {
-        if (addPX) {first += "px";}
-        return first;
+    if (array[0] === sum) {
+        if (addPX) {array[0] += "px";}
+        return array[0];
     } else {
-        if (addPX) {string = string.replace(/ /g, "px ");}
-        string = string.substring(0, string.length - 1);
+        
+        if (array[1] === array[3]) {
+            if (array[0] === array[2]) {array.pop();}
+            array.pop();
+        }
+        
+        if (addPX) {
+            var string = array.join("px ");
+            string += "px";
+        } else {
+            var string = array.join(" ");
+        }
         return string;
     }
 }
