@@ -14,11 +14,19 @@ footer {text-align: center; margin-top: 40px;}
     flex-shrink: 9999; /* Firefox bug fix */
     border: 2px solid #FFF;
     position: relative;
+    -webkit-user-select: none;
     -ms-user-select: none;
     -moz-user-select: -moz-none;
     user-select: none;
 }
-#sideeditor img {max-height: 100%; max-width: 100%;}
+#sideeditor img {
+    max-height: 100%;
+    max-width: 100%;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: -moz-none;
+    user-select: none;
+}
 
 *[zoom] img {image-rendering: pixelated; image-rendering: crisp-edges; -ms-interpolation-mode: nearest-neighbor;}
 

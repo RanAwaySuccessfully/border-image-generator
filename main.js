@@ -177,10 +177,13 @@ function lineMove(event) {
     var zoom = sideeditor.getAttribute("zoom");
     if (!zoom) {zoom = 1;}
     
-    var left = parseInt((event.clientX - sideeditorPosition.left) / zoom);
-    var top = parseInt((event.clientY - sideeditorPosition.top) / zoom);
-    var right = parseInt((sideeditor.clientWidth - (event.clientX - sideeditorPosition.left)) / zoom);
-    var bottom = parseInt((sideeditor.clientHeight - (event.clientY - sideeditorPosition.top)) / zoom);
+    var x = event.clientX || event.touches[0].clientX;
+    var y = event.clientY || event.touches[0].clientY;
+    
+    var left = parseInt((x - sideeditorPosition.left) / zoom);
+    var top = parseInt((y - sideeditorPosition.top) / zoom);
+    var right = parseInt((sideeditor.clientWidth - (x - sideeditorPosition.left)) / zoom);
+    var bottom = parseInt((sideeditor.clientHeight - (y - sideeditorPosition.top)) / zoom);
     
     var element = currentlyActiveHR;
     var i;
